@@ -1,0 +1,9 @@
+Origin: StoreSwitcher Vault
+Label: StoreSwitcher Vault
+Suite: stable
+Version: 0.2.0
+Codename: stable
+Architectures: iphoneos-arm64
+Components: main
+Description: StoreSwitcher Vault rootless jailbreak package feed.
+
