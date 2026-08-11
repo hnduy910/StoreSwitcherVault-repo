@@ -1,4 +1,4 @@
-# StoreSwitcher Vault 0.6.0
+# StoreSwitcher Vault 0.6.2
 
 A clean-room, rootless Theos tweak for Dopamine on iOS 15–16. It lists App Store
 sessions exposed by StoreServices, switches a still-saved session, and keeps
@@ -30,13 +30,18 @@ takes effect on its next request and the result message tells you that one
 Userspace Reboot may be needed after installing the package. The button does
 not claim to reboot launchd without jailbreak/root authority.
 
-The `installd` bypass only removes the metadata compatibility gate. It cannot
+The 0.6.1 sign-in path recognizes UIKit primary actions and navigation-bar
+`UIBarButtonItem` actions in addition to ordinary buttons. It keeps retrying
+until the native form actually advances, instead of treating a keyboard return
+event as a successful login. It also waits briefly after StoreServices sign-out
+before opening the new sign-in sheet. The `installd` bypass only removes the metadata compatibility gate. It cannot
 add APIs or frameworks missing from the current iOS, so a current binary may
 still fail to launch or there may be no usable build for the device. If Apple
 has a last-compatible version, turn the higher-OS switches off, tap **Áp dụng**,
 and request that version instead.
 
-Version 0.6.0 keeps the 0.5.1 daemon-constructor fix and extends the filter to
+Version 0.6.2 keeps the 0.6.1 sign-in submit fix and adds SpringBoard quick
+actions. Version 0.6.0 extended the filter to
 `installd`. After the first installation, use **Áp dụng** once; if the old
 daemon was already running and cannot be signalled from the sandbox, perform a
 single Dopamine Userspace Reboot (or reboot the device) so the new hook is
@@ -54,9 +59,13 @@ selections reuse that password without prompting; a still-valid `SSAccountStore`
 session never prompts. A one-time fallback prompt remains only for managed
 entries created by older versions that never had a stored password.
 
-After a new account is saved, the tweak first attempts to sign out/deactivate
-the currently active StoreServices account, then immediately opens the App
-Store sign-in screen. When the sheet offers a row such as "Not <account>?" or
+When the target Apple ID is already present in `SSAccountStore`, switching uses
+`setActive:` plus `saveAccount:verifyCredentials:NO` directly; it does not sign
+out or ask for the password again. This matches the StoreSwitcher2 community
+workflow, where accounts are logged in once and then selected from the saved
+session list. If the target has never been saved by App Store, the tweak first
+attempts to sign out/deactivate the currently active StoreServices account and
+opens the native sign-in screen. When the sheet offers a row such as "Not <account>?" or
 "Use a different Apple ID", that row is selected before the saved email is
 entered. The email field receives a simulated Return/Continue action, then the
 password field is filled and the native Sign In action is submitted. If Apple
@@ -181,11 +190,13 @@ upstream implementation.
   about twenty-one seconds and only recognizes localized account-choice,
   Continue/Next, Other Options, Don't Upgrade/Not Now, and 2FA labels; purchase-password autofill
   never auto-submits.
-- The Home Screen quick action is a dynamic `UIApplicationShortcutItem` added
-  from the App Store process and handles both app-delegate and scene-delegate
-  shortcut callbacks. It may not appear until App Store has been opened once
-  after installation, and iOS can replace or reorder Apple's built-in
-  Redeem/Purchased actions.
+- The Home Screen menu exposes **Chuyển tài khoản** and **Thêm tài khoản**.
+  The App Store process registers dynamic `UIApplicationShortcutItem` values and
+  the SpringBoard `SBIconView` fallback supplies the same actions for the system
+  App Store icon. **Chuyển tài khoản** opens the manager; **Thêm tài khoản** opens
+  the compact editor directly. A SpringBoard restart is required once after
+  installing this version so the new process hook is loaded, and iOS can still
+  replace or reorder Apple's built-in Redeem/Purchased actions.
 - Apple may invalidate a saved session or require password, 2FA, updated terms,
   or a storefront review. The tweak cannot and should not bypass these checks.
 - Keychain items use `kSecAttrAccessibleWhenUnlockedThisDeviceOnly`. They do not
