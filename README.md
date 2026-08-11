@@ -1,4 +1,4 @@
-# StoreSwitcher Vault 0.6.2
+# StoreSwitcher Vault 0.6.3
 
 A clean-room, rootless Theos tweak for Dopamine on iOS 15–16. It lists App Store
 sessions exposed by StoreServices, switches a still-saved session, and keeps
@@ -13,7 +13,7 @@ At the top of Store accounts there is an immediate switch for **Cho phép
 mua/tải app yêu cầu iOS cao hơn**, a separate **Áp dụng cho cập nhật** switch,
 an **iOS Version to Spoof** field, and an **Áp dụng** button. This follows the
 open-source AppStoreTroller model in two stages: the request hook runs in
-`appstored` so Apple records the purchase, and the new 0.6.0 hook runs in
+`appstored` so Apple records the purchase, and the `installd` hook runs in
 `installd` and changes only MIBundle's applicable OS argument for the native
 minimum-version check. Preferences are read directly from the mobile plist by
 both daemons, so a switch or version change is effective for the next request.
@@ -30,18 +30,26 @@ takes effect on its next request and the result message tells you that one
 Userspace Reboot may be needed after installing the package. The button does
 not claim to reboot launchd without jailbreak/root authority.
 
-The 0.6.1 sign-in path recognizes UIKit primary actions and navigation-bar
-`UIBarButtonItem` actions in addition to ordinary buttons. It keeps retrying
-until the native form actually advances, instead of treating a keyboard return
-event as a successful login. It also waits briefly after StoreServices sign-out
+The 0.6.3 sign-in path recognizes UIKit primary actions, navigation-bar
+`UIBarButtonItem` actions, and the native controller's sign-in selectors in
+addition to ordinary buttons. It keeps retrying until the native form actually
+advances, instead of treating a keyboard return event as a successful login. The
+manager is retained while the sheet is being filled, so dismissing the manager
+cannot cancel the automation. It also waits briefly after StoreServices sign-out
 before opening the new sign-in sheet. The `installd` bypass only removes the metadata compatibility gate. It cannot
 add APIs or frameworks missing from the current iOS, so a current binary may
 still fail to launch or there may be no usable build for the device. If Apple
 has a last-compatible version, turn the higher-OS switches off, tap **Áp dụng**,
 and request that version instead.
 
-Version 0.6.2 keeps the 0.6.1 sign-in submit fix and adds SpringBoard quick
-actions. Version 0.6.0 extended the filter to
+Version 0.6.3 keeps the saved-session direct switch and adds repeated native
+submit attempts, one-time sign-in coordination, and broader Apple ID password
+autofill for clearly identified App Store password prompts. When a password
+prompt is a normal sign-in sheet, the tweak also submits the native Sign In
+action after filling; it never fills verification codes and does not submit a
+purchase-history confirmation. Version 0.6.2 added SpringBoard quick actions;
+they now append to the existing App Store menu without removing or truncating
+Apple's built-in items. Version 0.6.0 extended the filter to
 `installd`. After the first installation, use **Áp dụng** once; if the old
 daemon was already running and cannot be signalled from the sandbox, perform a
 single Dopamine Userspace Reboot (or reboot the device) so the new hook is
@@ -77,13 +85,16 @@ to enter the code. Terms, device approval, and any other security checks remain
 interactive.
 
 Long-pressing a row in the manager shows an `Kích hoạt` menu (plus edit and
-delete for vault entries). The tweak also registers a dynamic Home Screen quick
-action named `Chuyển tài khoản` in the App Store icon menu; open App Store once
-after installation so iOS records the dynamic item. The currently active
-session is labeled `Active` in green in both sections. When Apple's purchase
-history screen displays a password field, the active account's Keychain
-password is filled when the prompt is clearly identified; the user still
-controls submission and any required 2FA/confirmation.
+delete for vault entries). The tweak also registers two Home Screen quick
+actions in the App Store icon menu: `Chuyển tài khoản` and `Thêm tài khoản`.
+They are appended to the existing system actions, and **Chuyển tài khoản** opens
+the manager immediately so a saved session can be selected without another
+login. Open App Store once after installation so iOS records the dynamic item.
+The currently active session is labeled `Active` in green in both sections. An
+Apple ID password is filled automatically whenever the visible App Store prompt
+clearly identifies an account/password request; purchase-history confirmations
+remain user-submitted, while a normal sign-in sheet receives the native Sign In
+action after the password is filled.
 
 Managed Apple IDs can also be removed by swiping from right to left and
 tapping **Xóa**; this removes that ID's Vault password and metadata only.
@@ -187,16 +198,17 @@ upstream implementation.
   not be described as a second device.
 - `AppStore.AccountViewController`, sign-in action selectors, and the sign-in
   view hierarchy are especially fragile. Sign-in automation is bounded to
-  about twenty-one seconds and only recognizes localized account-choice,
-  Continue/Next, Other Options, Don't Upgrade/Not Now, and 2FA labels; purchase-password autofill
-  never auto-submits.
+  about twenty-one seconds and recognizes localized account-choice,
+  Continue/Next, Sign In, Other Options, Don't Upgrade/Not Now, and 2FA labels.
+  Generic autofill is limited to a clearly identified Apple ID/App Store
+  password prompt; it never fills a device passcode or a verification code.
 - The Home Screen menu exposes **Chuyển tài khoản** and **Thêm tài khoản**.
   The App Store process registers dynamic `UIApplicationShortcutItem` values and
   the SpringBoard `SBIconView` fallback supplies the same actions for the system
   App Store icon. **Chuyển tài khoản** opens the manager; **Thêm tài khoản** opens
-  the compact editor directly. A SpringBoard restart is required once after
-  installing this version so the new process hook is loaded, and iOS can still
-  replace or reorder Apple's built-in Redeem/Purchased actions.
+  the compact editor directly. The hook preserves the original system actions
+  and only appends these two entries. A SpringBoard restart is required once
+  after installing this version so the new process hook is loaded.
 - Apple may invalidate a saved session or require password, 2FA, updated terms,
   or a storefront review. The tweak cannot and should not bypass these checks.
 - Keychain items use `kSecAttrAccessibleWhenUnlockedThisDeviceOnly`. They do not
@@ -221,3 +233,5 @@ upstream implementation.
 6. Verify cancel, wrong password, 2FA, expired session, terms, and offline paths.
 7. Delete a vault entry and confirm its Keychain password can no longer be read.
 8. Repeat on at least one iOS 15 and one iOS 16 device under Dopamine/ElleKit.
+9. Long-press the App Store icon and confirm the native actions remain present
+   alongside **Chuyển tài khoản** and **Thêm tài khoản**.
