@@ -1,4 +1,4 @@
-# StoreSwitcher Vault 0.5.0
+# StoreSwitcher Vault 0.5.1
 
 A clean-room, rootless Theos tweak for Dopamine on iOS 15–16. It lists App Store
 sessions exposed by StoreServices, switches a still-saved session, and keeps
@@ -24,6 +24,12 @@ the app to the Apple ID, then turn it off and refresh before downloading the
 latest compatible build if Apple has one. Enabling the updates switch can make
 the App Store advertise newer builds, but neither switch can make a binary
 whose `MinimumOSVersion` is truly unsupported run on the current iOS.
+
+Version 0.5.1 fixes the daemon constructor ordering: the request hook is now
+initialized inside `appstored` before the UI-only branch exits. After updating,
+restart `appstored` (or reboot userspace/device); restarting SpringBoard alone
+does not reload an already-running App Store daemon. A quick check is to kill
+the App Store and `appstored`, open the App Store again, then retry **Get**.
 
 The account editor is intentionally compact: one account/email field, quick
 `@gmail.com`, `@icloud.com`, and `@yahoo.com` suffix buttons, a preview of the
@@ -63,7 +69,7 @@ tapping **Xóa**; this removes that ID's Vault password and metadata only.
 
 ## Profile containers
 
-Version 0.5.0 assigns every managed Apple ID a stable profile UUID. The UUID
+Version 0.5.1 assigns every managed Apple ID a stable profile UUID. The UUID
 namespaces the tweak's Keychain service and per-profile `NSUserDefaults` suite;
 old email-keyed Keychain entries are migrated once on first load. The manager
 shows a short container label so profiles can be distinguished and deleting a

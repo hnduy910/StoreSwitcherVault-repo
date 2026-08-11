@@ -1,6 +1,6 @@
 Package: com.example.storeswitchervault
 Name: StoreSwitcher Vault
-Version: 0.5.0
+Version: 0.5.1
 Architecture: iphoneos-arm64
 Description: Manage and switch App Store accounts on rootless iOS 15-16.
 Maintainer: StoreSwitcher Vault contributors
@@ -8,6 +8,6 @@ Author: StoreSwitcher Vault contributors
 Section: Tweaks
 Priority: optional
 Depends: firmware (>= 15.0), ellekit | mobilesubstrate
-Filename: com.example.storeswitchervault_0.5.0_iphoneos-arm64.deb
-Size: 53016
-SHA256: 1ce0370542495d368d51805c925f35dd7a955102f5861caec44ca2b56cf2127c
+Filename: com.example.storeswitchervault_0.5.1_iphoneos-arm64.deb
+Size: 52908
+SHA256: b6f8982cdb906c5659aac6eb7b8dcb33f421035b201120b40e8b3f12e7d1def0
