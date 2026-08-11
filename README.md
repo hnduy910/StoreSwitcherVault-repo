@@ -1,4 +1,4 @@
-# StoreSwitcher Vault 0.6.7
+# StoreSwitcher Vault 0.6.8
 
 A clean-room, rootless Theos tweak for Dopamine on iOS 15–16. It lists App Store
 sessions exposed by StoreServices, switches a still-saved session, and keeps
@@ -30,7 +30,7 @@ takes effect on its next request and the result message tells you that one
 Userspace Reboot may be needed after installing the package. The button does
 not claim to reboot launchd without jailbreak/root authority.
 
-The 0.6.7 sign-in path recognizes UIKit primary actions, navigation-bar
+The 0.6.8 sign-in path recognizes UIKit primary actions, navigation-bar
 `UIBarButtonItem` actions, and the native controller's sign-in selectors in
 addition to ordinary buttons. It keeps retrying until the native form actually
 advances, instead of treating a keyboard return event as a successful login. The
@@ -42,7 +42,7 @@ still fail to launch or there may be no usable build for the device. If Apple
 has a last-compatible version, turn the higher-OS switches off, tap **Áp dụng**,
 and request that version instead.
 
-Version 0.6.7 keeps the saved-session direct switch and adds repeated native
+Version 0.6.8 keeps the saved-session direct switch and adds repeated native
 submit attempts, one-time sign-in coordination, and broader Apple ID password
 autofill for clearly identified App Store password prompts. When a password
 prompt is a normal sign-in sheet, the tweak also submits the native Sign In
@@ -56,7 +56,7 @@ single Dopamine Userspace Reboot (or reboot the device) so the new hook is
 loaded. Restarting SpringBoard alone is not sufficient for `appstored` or
 `installd`.
 
-Version 0.6.7 fixes a sign-in regression where automation could select an
+Version 0.6.8 fixes a sign-in regression where automation could select an
 unrelated App Store or keyboard window and clear the pending password before
 the native password field appeared. The manager now prefers the visible
 sign-in form and keeps the Keychain password pending until that field has been
