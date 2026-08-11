@@ -1,4 +1,17 @@
-# StoreSwitcher Vault 0.6.11
+# StoreSwitcher Vault 0.6.12
+
+## 0.6.12 hồi phục hook SpringBoard/daemon
+
+Bản 0.6.11 có một lỗi đóng gói quan trọng: filter chứa cả `Bundles` và
+`Executables` nhưng thiếu `Mode = Any`. Cydia Substrate khi đó yêu cầu cả hai
+loại filter cùng khớp, nên dylib chỉ được nạp trong AppStore; `SpringBoard`,
+`appstored` và `installd` không hề chạy mã Vault. Đây là nguyên nhân màn hình
+**Mật khẩu Tài khoản Apple** đứng yên và các hook daemon không có hiệu lực.
+
+0.6.12 thêm `Mode = Any` để các tiến trình là các mục tiêu thay thế đúng như
+thiết kế, đồng thời bắt thêm accessor `SBAlertItem.alertController` cho các
+build iOS không gọi lại `configure:`. Luồng session đã lưu, Keychain và 2FA
+được giữ nguyên.
 
 A clean-room, rootless Theos tweak for Dopamine on iOS 15–16. It lists App Store
 sessions exposed by StoreServices, switches a still-saved session, and keeps
