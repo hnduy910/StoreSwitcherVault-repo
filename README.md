@@ -1,4 +1,4 @@
-# StoreSwitcher Vault 0.5.1
+# StoreSwitcher Vault 0.6.0
 
 A clean-room, rootless Theos tweak for Dopamine on iOS 15–16. It lists App Store
 sessions exposed by StoreServices, switches a still-saved session, and keeps
@@ -11,25 +11,37 @@ submits a 2FA code and does not bypass Apple's checks.
 
 At the top of Store accounts there is an immediate switch for **Cho phép
 mua/tải app yêu cầu iOS cao hơn**, a separate **Áp dụng cho cập nhật** switch,
-and an **iOS Version to Spoof** field. This follows the open-source
-AppStoreTroller model: the request hook runs in both the App Store UI and
-Apple's `appstored` daemon, and only the relevant StoreServices User-Agent is
-rewritten. The version field accepts values such as `17.6`, `18.0`, or `99.0`
-and is read for every request, so toggling a switch or changing the version is
-effective immediately without a respring. The updates option is intentionally
-off by default because Apple may return a very large update list.
+an **iOS Version to Spoof** field, and an **Áp dụng** button. This follows the
+open-source AppStoreTroller model in two stages: the request hook runs in
+`appstored` so Apple records the purchase, and the new 0.6.0 hook runs in
+`installd` and changes only MIBundle's applicable OS argument for the native
+minimum-version check. Preferences are read directly from the mobile plist by
+both daemons, so a switch or version change is effective for the next request.
+The updates option is intentionally off by default because Apple may return a
+very large update list.
 
-For the normal workflow, enable the purchase switch, tap **Get** once to add
-the app to the Apple ID, then turn it off and refresh before downloading the
-latest compatible build if Apple has one. Enabling the updates switch can make
-the App Store advertise newer builds, but neither switch can make a binary
-whose `MinimumOSVersion` is truly unsupported run on the current iOS.
+For the direct-download workflow, enable the purchase switch, choose a
+reasonable spoof value (for example `17.6` or `18.0` rather than `99.0`), tap
+**Get** once, then keep the switch enabled while the download/install is
+started. Tap **Áp dụng** after changing the policy; it refreshes the account
+screen and makes a best-effort request to reload `appstored` and `installd`.
+If the device's App Store sandbox cannot signal a daemon, the preference still
+takes effect on its next request and the result message tells you that one
+Userspace Reboot may be needed after installing the package. The button does
+not claim to reboot launchd without jailbreak/root authority.
 
-Version 0.5.1 fixes the daemon constructor ordering: the request hook is now
-initialized inside `appstored` before the UI-only branch exits. After updating,
-restart `appstored` (or reboot userspace/device); restarting SpringBoard alone
-does not reload an already-running App Store daemon. A quick check is to kill
-the App Store and `appstored`, open the App Store again, then retry **Get**.
+The `installd` bypass only removes the metadata compatibility gate. It cannot
+add APIs or frameworks missing from the current iOS, so a current binary may
+still fail to launch or there may be no usable build for the device. If Apple
+has a last-compatible version, turn the higher-OS switches off, tap **Áp dụng**,
+and request that version instead.
+
+Version 0.6.0 keeps the 0.5.1 daemon-constructor fix and extends the filter to
+`installd`. After the first installation, use **Áp dụng** once; if the old
+daemon was already running and cannot be signalled from the sandbox, perform a
+single Dopamine Userspace Reboot (or reboot the device) so the new hook is
+loaded. Restarting SpringBoard alone is not sufficient for `appstored` or
+`installd`.
 
 The account editor is intentionally compact: one account/email field, quick
 `@gmail.com`, `@icloud.com`, and `@yahoo.com` suffix buttons, a preview of the
@@ -69,7 +81,7 @@ tapping **Xóa**; this removes that ID's Vault password and metadata only.
 
 ## Profile containers
 
-Version 0.5.1 assigns every managed Apple ID a stable profile UUID. The UUID
+Version 0.6.0 assigns every managed Apple ID a stable profile UUID. The UUID
 namespaces the tweak's Keychain service and per-profile `NSUserDefaults` suite;
 old email-keyed Keychain entries are migrated once on first load. The manager
 shows a short container label so profiles can be distinguished and deleting a
