@@ -1,4 +1,4 @@
-# StoreSwitcher Vault 0.4.2
+# StoreSwitcher Vault 0.5.0
 
 A clean-room, rootless Theos tweak for Dopamine on iOS 15–16. It lists App Store
 sessions exposed by StoreServices, switches a still-saved session, and keeps
@@ -10,14 +10,20 @@ response when the post-login screen asks to upgrade 2FA. It never fills or
 submits a 2FA code and does not bypass Apple's checks.
 
 At the top of Store accounts there is an immediate switch for **Cho phép
-mua/tải app yêu cầu iOS cao hơn**. The request hook now runs in both the App
-Store UI and Apple's `appstored` daemon, matching the open-source AppStoreTroller
-filter. When enabled, the purchase request User-Agent is temporarily presented
-as iOS 99.0.0. The switch is read for every request, so turning it off takes
-effect immediately without a respring. The reliable workflow is: enable it,
-tap Get once to record the app to the Apple ID, turn it off, refresh the page,
-and then download the latest compatible build if Apple has one. It cannot make
-a newer binary run on the current iOS.
+mua/tải app yêu cầu iOS cao hơn**, a separate **Áp dụng cho cập nhật** switch,
+and an **iOS Version to Spoof** field. This follows the open-source
+AppStoreTroller model: the request hook runs in both the App Store UI and
+Apple's `appstored` daemon, and only the relevant StoreServices User-Agent is
+rewritten. The version field accepts values such as `17.6`, `18.0`, or `99.0`
+and is read for every request, so toggling a switch or changing the version is
+effective immediately without a respring. The updates option is intentionally
+off by default because Apple may return a very large update list.
+
+For the normal workflow, enable the purchase switch, tap **Get** once to add
+the app to the Apple ID, then turn it off and refresh before downloading the
+latest compatible build if Apple has one. Enabling the updates switch can make
+the App Store advertise newer builds, but neither switch can make a binary
+whose `MinimumOSVersion` is truly unsupported run on the current iOS.
 
 The account editor is intentionally compact: one account/email field, quick
 `@gmail.com`, `@icloud.com`, and `@yahoo.com` suffix buttons, a preview of the
@@ -57,7 +63,7 @@ tapping **Xóa**; this removes that ID's Vault password and metadata only.
 
 ## Profile containers
 
-Version 0.4.2 assigns every managed Apple ID a stable profile UUID. The UUID
+Version 0.5.0 assigns every managed Apple ID a stable profile UUID. The UUID
 namespaces the tweak's Keychain service and per-profile `NSUserDefaults` suite;
 old email-keyed Keychain entries are migrated once on first load. The manager
 shows a short container label so profiles can be distinguished and deleting a
