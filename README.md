@@ -81,8 +81,11 @@ offers an optional 2FA-upgrade prompt, the tweak first selects "Other Options"
 when present and then only an explicit "Don't Upgrade", "Not Now", "Later", or
 Vietnamese equivalent. When Apple presents a
 verification-code/trusted-phone screen, automation stops and waits for the user
-to enter the code. Terms, device approval, and any other security checks remain
-interactive.
+to enter the code. After the code is accepted, the tweak watches for the target
+account to appear in `SSAccountStore` and reuses that saved session on later
+switches. Apple can still ask for 2FA again if it invalidates or re-evaluates
+the session; no tweak can safely suppress that server decision. Terms, device
+approval, and any other security checks remain interactive.
 
 Long-pressing a row in the manager shows an `Kích hoạt` menu (plus edit and
 delete for vault entries). The tweak also registers two Home Screen quick
