@@ -27,11 +27,11 @@ corresponding tweak directory.
 
 Current packages:
 
-- VietAI Assistant 0.2.0 — Vietnamese wake-phrase assistant with multi-turn hands-free conversations, spoken responses, contact call/message confirmation, dynamic app launch, media, navigation, flashlight, volume, home and lock actions.
+- VietAI Assistant 0.2.1 — Vietnamese wake-phrase assistant with multi-turn hands-free conversations, spoken responses, accent-preserving contact/message/navigation arguments, dynamic app launch, media, navigation, flashlight, volume, home and lock actions.
 - AI Voice Assistant 0.4.2 — Vietnamese-first hands-free assistant with settings in both the iPhone Settings app and the vehicle's CarPlay pane, shared Vietnamese/English locale selection, CarPlay auto-start, local voice commands, confirmations, TTS, and Maps/media handoff. The former CarPlay bridge is not active in this release.
 - StoreSwitcher Vault 0.6.16 — rootless iOS 15–16.
 
-## VietAI Assistant 0.2.0
+## VietAI Assistant 0.2.1
 
 VietAI is the general-purpose companion in this feed. Install the single package
 from this source, open **VietAI**, grant Microphone, Speech Recognition and
