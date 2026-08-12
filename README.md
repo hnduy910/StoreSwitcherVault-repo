@@ -1,4 +1,17 @@
-# StoreSwitcher Vault 0.6.16
+# HNDuy Tweaks repository
+
+Public Sileo/Zebra feed containing binary packages only. Source repositories remain private.
+
+Add this source after GitHub Pages finishes publishing:
+
+`https://hnduy910.github.io/StoreSwitcherVault-repo/`
+
+Current packages:
+
+- AI CarBridge 0.1.0 — experimental iOS 15+ rootless foundation; parked bench testing only.
+- StoreSwitcher Vault 0.6.16 — rootless iOS 15–16.
+
+## StoreSwitcher Vault 0.6.16
 
 ## 0.6.16 sửa prompt SpringBoard không tự điền/submit
 

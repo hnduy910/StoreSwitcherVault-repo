@@ -1,3 +1,18 @@
+Package: com.example.aicarbridge
+Name: AI CarBridge
+Version: 0.1.0
+Architecture: iphoneos-arm64
+Description: Experimental rootless CarPlay app bridge foundation for iOS 15+.
+Maintainer: AI CarBridge Contributors
+Author: AI CarBridge Contributors
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), ellekit | mobilesubstrate, preferenceloader
+Conflicts: com.cortex.carplayenable
+Filename: com.example.aicarbridge_0.1.0_iphoneos-arm64.deb
+Size: 17176
+SHA256: a87865ae90ad430d036cbc53202853d22ec477c1da855650e58850aacc00cb5e
+
 Package: com.example.storeswitchervault
 Name: StoreSwitcher Vault
 Version: 0.6.16

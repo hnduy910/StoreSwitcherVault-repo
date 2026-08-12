@@ -1,14 +1,14 @@
-Origin: StoreSwitcher Vault
-Label: StoreSwitcher Vault
+Origin: HNDuy Tweaks
+Label: HNDuy Tweaks
 Suite: stable
-Version: 0.6.16
+Version: 1.0
 Codename: stable
 Architectures: iphoneos-arm64
 Components: main
-Description: StoreSwitcher Vault rootless jailbreak package feed.
+Description: Public rootless jailbreak package feed for HNDuy tweaks.
 MD5Sum:
-  1123a5e0a3c83aee3c41d2da82fa504c  1240  Packages
-  e693e7507613b792b0039ffc3b858318  474  Packages.gz
+ 082dad3ecb4cf1aab152bb06599de4a0     1775 Packages
+ 65b60f8e8b8b82fd2fccd485a7dada0f      645 Packages.gz
 SHA256:
-  09188d3490e331950cb962605ab1507a1b7971a9a01ab9a3ea4253ea805858c8  1240  Packages
-  78d8bd3af70f63ce28f59c1e86e2b5ff33d81d844470e308e3840036d8eaefb3  474  Packages.gz
+ ec7441719c0656c20c380b637244d2a37ebb1e3801d03cb633630037d7e62b4a     1775 Packages
+ 5d6cc4f228ae647aa1362e3ba8d36e60f4cc88e4bbc2f1bd7704d5d1b2d4826b      645 Packages.gz
