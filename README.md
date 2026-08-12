@@ -25,12 +25,12 @@ corresponding tweak directory.
 
 Current packages:
 
-- AI Voice Assistant 0.3.0 — Vietnamese-first wake-word assistant with local command parsing, spoken responses, Google Maps/YouTube handoff, and optional VTV1 URL. The former CarPlay bridge is not active in this release.
+- AI Voice Assistant 0.4.0 — Vietnamese-first hands-free assistant that starts when CarPlay connects, parses local voice commands, confirms calls/messages, provides TTS, and hands off Maps/media. The former CarPlay bridge is not active in this release.
 - StoreSwitcher Vault 0.6.16 — rootless iOS 15–16.
 
-## AI Voice Assistant 0.3.0
+## AI Voice Assistant 0.4.0
 
-This release focuses on the voice assistant rather than arbitrary CarPlay app injection. Enable the assistant in Settings, grant microphone/speech permission with the test button, then enable the Vietnamese wake phrase **“Này trợ lý”**. The parser handles navigation, search, calls, app/media handoff, and basic playback commands. Place search depends on the target app and network availability; VTV1 requires a user-supplied stream/page URL.
+This release focuses on the voice assistant rather than arbitrary CarPlay app injection. Enable automatic start on CarPlay in Settings, grant microphone/speech permission with the test button, then use the Vietnamese wake phrase **“Này trợ lý”**. English is selectable. The parser handles navigation, search, phone/message handoff with confirmation, app/media handoff, and basic playback commands. Place search depends on the target app and network availability; VTV1 requires a user-supplied stream/page URL.
 
 ## StoreSwitcher Vault 0.6.16
 
