@@ -1,3 +1,17 @@
+Package: com.vietai.assistant
+Name: VietAI Assistant
+Version: 0.2.0
+Architecture: iphoneos-arm64
+Description: Vietnamese hands-free assistant with wake phrase, multi-turn confirmations, contact calls/messages, dynamic app launch, media, navigation, flashlight, volume, home and lock actions.
+Maintainer: VietAI
+Author: VietAI
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), ellekit | mobilesubstrate
+Filename: VietAI-Assistant/com.vietai.assistant_0.2.0_iphoneos-arm64.deb
+Size: 47866
+SHA256: 7ab4208893253a7f7689eb2ec391e4d4d845ac0c1c61c7558ca7ae2e59df0d9e
+
 Package: com.example.aicarbridge
 Name: AI Voice Assistant
 Version: 0.4.2
