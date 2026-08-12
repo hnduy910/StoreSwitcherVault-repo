@@ -1,7 +1,7 @@
 Origin: StoreSwitcher Vault
 Label: StoreSwitcher Vault
 Suite: stable
-Version: 0.6.13
+Version: 0.6.14
 Codename: stable
 Architectures: iphoneos-arm64
 Components: main

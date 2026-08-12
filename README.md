@@ -1,4 +1,18 @@
-# StoreSwitcher Vault 0.6.13
+# StoreSwitcher Vault 0.6.14
+
+## 0.6.14 điều phối đúng tài khoản qua prompt hệ thống
+
+Bản này thêm trạng thái đăng nhập dùng chung giữa App Store và SpringBoard.
+Trạng thái chỉ chứa email đích, email phiên cũ, mã yêu cầu và bước xử lý;
+không chứa mật khẩu hoặc mã 2FA. Khi prompt hiển thị tài khoản cũ, tweak không
+điền nhầm mật khẩu đích vào tài khoản đó. Nếu đó là bước xác thực phiên cũ khi
+đăng xuất, nó dùng đúng email cũ rồi chuyển sang form tài khoản đích.
+
+Cầu nối mật khẩu ưu tiên `runServerOnCurrentThread` trên một luồng riêng theo
+mẫu RocketBootstrap/CPDistributedMessagingCenter, sau đó mới dùng selector
+tương thích cũ. Sau khi submit, coordinator chờ tài khoản đích xuất hiện trong
+`SSAccountStore`, dừng ở 2FA để người dùng nhập mã, rồi kích hoạt và làm mới
+trang Account.
 
 ## 0.6.13 sửa cầu nối mật khẩu và làm mới trang tài khoản
 
@@ -238,6 +252,7 @@ No upstream file is shipped unchanged.
 | `SSVAccountBridge.h/.m` | new | Runtime-checked StoreServices/StoreKit private API adapter |
 | `SSVKeychain.h/.m` | new | Generic-password Keychain storage |
 | `SSVProfileStore.h/.m` | new | Stable profile UUIDs and per-profile preferences |
+| `SSVSignInCoordinator.h/.m` | new | Non-secret cross-process target/phase state for sign-in |
 | `SSVManagerController.h/.m` | new | Session list, credential list, switching and fallback fill UI |
 | `Makefile`, `control`, plist | new | Dopamine/rootless Theos packaging |
 | `LICENSE`, `README.md` | new | License, provenance, build and risk notes |
@@ -281,6 +296,10 @@ upstream implementation.
   behavior; validate add/read/delete on each Dopamine/ElleKit combination.
 - Account metadata is non-secret and stored in the custom preferences domain
   `com.example.storeswitchervault`; passwords are never placed there.
+- Sign-in routing state is stored separately in
+  `/var/mobile/Library/Preferences/com.example.storeswitchervault.signin.plist`.
+  It contains only target/current emails, a request UUID, phase and timestamp;
+  stale state expires after ten minutes and is removed after the flow ends.
 - Any tweak injected into App Store can conflict with other App Store hooks.
   Test without StoreSwitcher2, Crane, or UI-modifying tweaks before reporting a
   crash.
