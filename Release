@@ -3,12 +3,12 @@ Label: HNDuy Tweaks
 Suite: stable
 Version: 1.0
 Codename: stable
-Architectures: iphoneos-arm64
+Architectures: iphoneos-arm64 iphoneos-arm64e
 Components: main
 Description: Public rootless jailbreak package feed for HNDuy tweaks.
 MD5Sum:
- 8e48ed79ef28f4863d1844ca38b9e071     5043 Packages
- 055b1e788304bc458608be51d0933d27      1358 Packages.gz
+ d55fe5d08a2e7cfd9956943e5ad2e109     6235 Packages
+ f8f394344ba01b201381ad7dff7fcd3f      1477 Packages.gz
 SHA256:
- 9bd900a44f0abd38cbf578c3bb063f5d67d3b81c9c914141d55bbf4074362809     5043 Packages
- c15f236331eaffbde2e1416dd92111e020ccd6f4b1019bb0f9c9501daf66b755      1358 Packages.gz
+ 40a86eaf5b8ebe57c76335eb9be5a64291b8b20817356c314742d7a3f4736e1a     6235 Packages
+ 6848b2bece787813978829ca6477edab88e58dafe1624d59e8f235c4b7138312      1477 Packages.gz
