@@ -7,8 +7,8 @@ Architectures: iphoneos-arm64
 Components: main
 Description: Public rootless jailbreak package feed for HNDuy tweaks.
 MD5Sum:
- d4e08fe1f27e00194625a7ec1d8cc51c     2504 Packages
- 456a931019af5bc76f9986a38736403c      901 Packages.gz
+ 596e9617653e0455f7e963b14ce71541     3171 Packages
+ bcef921a180f47c763968c9acaad5b65      1004 Packages.gz
 SHA256:
- a8446bcbe0a3794e819986d2a3190db34123c1f1554e56b5d60be5d0dd37a966     2504 Packages
- 961a399148341d6b3c97ddf429e4c9b32fd439695c3407023fcfa65d0e6136e9      901 Packages.gz
+ 6f6d44d9b23b79b15c1b6568fd2c19be60fc61297a14ac4d7150c3f9518f81d4     3171 Packages
+ f5a2df835129092b4005ecbd3518be7d3edc592d98228ad19f1a102c43a1facb      1004 Packages.gz

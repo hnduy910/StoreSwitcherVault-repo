@@ -1,5 +1,20 @@
 Package: com.example.aicarbridge
 Name: AI Voice Assistant
+Version: 0.4.1
+Architecture: iphoneos-arm64
+Description: Vietnamese-first hands-free assistant with opt-in passenger display mode, CarPlay auto-start, local voice commands, confirmations, TTS, and Maps/media handoff.
+Maintainer: AI Voice Assistant Contributors
+Author: AI Voice Assistant Contributors
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), ellekit | mobilesubstrate, preferenceloader
+Conflicts: com.cortex.carplayenable
+Filename: AI-Voice-Assistant/com.example.aicarbridge_0.4.1_iphoneos-arm64.deb
+Size: 46350
+SHA256: 3564a9551daf40fe00edb0a4e73937eaeaab012451f4879679590eb0d2ed25b7
+
+Package: com.example.aicarbridge
+Name: AI Voice Assistant
 Version: 0.4.0
 Architecture: iphoneos-arm64
 Description: Vietnamese-first hands-free assistant that starts on CarPlay connection, parses local voice commands, confirms calls/messages, provides TTS, and hands off Maps/media.
