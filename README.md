@@ -4,7 +4,7 @@ Public Sileo/Zebra feed containing binary packages only. Source repositories rem
 
 Add this source after GitHub Pages finishes publishing:
 
-`https://hnduy910.github.io/StoreSwitcherVault-repo/`
+`https://hnduy910.github.io/repo/`
 
 Current packages:
 
