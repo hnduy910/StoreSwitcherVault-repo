@@ -5,7 +5,7 @@ Version: 1.0
 Codename: stable
 Architectures: iphoneos-arm64 iphoneos-arm64e
 Components: main
-Description: Public rootless jailbreak package feed for HNDuy tweaks.
+Description: Public rootless and RootHide jailbreak package feed for HNDuy tweaks.
 MD5Sum:
  d55fe5d08a2e7cfd9956943e5ad2e109     6235 Packages
  f8f394344ba01b201381ad7dff7fcd3f      1477 Packages.gz
