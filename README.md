@@ -14,6 +14,58 @@ Trên roothide Bootstrap thông thường, injection SpringBoard và daemon có 
 tắt theo thiết kế; khi đó phần chuyển session trong AppStore vẫn có thể dùng,
 nhưng quick action SpringBoard, autofill prompt ngoài AppStore và hook
 `appstored`/`installd` không được xem là hỗ trợ đầy đủ.
+# HNDuy Tweaks repository
+
+Public Sileo/Zebra feed containing binary packages only. Source repositories remain private.
+
+Add this source after GitHub Pages finishes publishing:
+
+`https://hnduy910.github.io/repo/`
+
+The feed is organized by tweak:
+
+```text
+repo/
+├── AI-Voice-Assistant/
+│   └── com.example.aicarbridge_*.deb
+├── VietAI-Assistant/
+│   └── com.vietai.assistant_*.deb
+├── StoreSwitcherVault/
+│   └── com.example.storeswitchervault_*.deb
+├── Packages
+├── Packages.gz
+└── Release
+```
+
+`Packages`, `Packages.gz`, and `Release` stay at the root because Sileo/Zebra
+read them as the repository index. The `Filename` fields point into the
+corresponding tweak directory.
+
+Current packages:
+
+- VietAI Assistant 0.2.2 — Vietnamese wake-phrase assistant with multi-turn hands-free conversations, spoken responses, accent-preserving contact/message/navigation arguments, dynamic app launch, media, navigation, flashlight, volume, home and lock actions. The feed includes the `iphoneos-arm64` rootless build and the `iphoneos-arm64e` RootHide build under the same package ID, so no second Sileo source is needed.
+- AI Voice Assistant 0.4.2 — Vietnamese-first hands-free assistant with settings in both the iPhone Settings app and the vehicle's CarPlay pane, shared Vietnamese/English locale selection, CarPlay auto-start, local voice commands, confirmations, TTS, and Maps/media handoff. The former CarPlay bridge is not active in this release.
+- StoreSwitcher Vault 0.6.17 — rootless and RootHide iOS 15–16 (`iphoneos-arm64` and `iphoneos-arm64e`).
+
+## VietAI Assistant 0.2.2
+
+VietAI is the general-purpose companion in this feed. Install the single package
+from this source, open **VietAI**, grant Microphone, Speech Recognition and
+Contacts access, then turn on **Rảnh tay**. Say **“Này trợ lý”** followed by a
+command. Calls and messages resolve contacts and ask for a spoken **có/không**
+confirmation before opening the native phone or message screen. The package
+uses an allowlisted daemon and SpringBoard bridge; it never executes arbitrary
+shell text from a voice prompt. It can be installed from this same feed without
+adding another Sileo source. On RootHide, Sileo selects the `iphoneos-arm64e`
+package; on a conventional rootless jailbreak it selects `iphoneos-arm64`.
+If AI Voice Assistant is also installed, enable only one wake-word assistant at
+a time to avoid two microphone sessions.
+
+## AI Voice Assistant 0.4.2
+
+This release focuses on the voice assistant rather than arbitrary CarPlay app injection. Configure it from **Settings → AI Voice Assistant** or **Settings → General → CarPlay → [vehicle] → AI Voice Assistant** on the iPhone; the settings are not rendered as a menu on the car display. Vietnamese (`vi-VN`) is the default for both interface and recognition, and English (`en-US`) is selectable. Enable automatic start on CarPlay, grant microphone/speech permission with the test button, then use **“Này trợ lý”**. The parser handles navigation, search, phone/message handoff with confirmation, app/media handoff, and basic playback commands. Place search depends on the target app and network availability; VTV1 requires a user-supplied stream/page URL.
+
+## StoreSwitcher Vault 0.6.17
 
 ## 0.6.16 sửa prompt SpringBoard không tự điền/submit
 
