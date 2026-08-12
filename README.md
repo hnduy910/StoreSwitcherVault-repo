@@ -1,4 +1,15 @@
-# StoreSwitcher Vault 0.6.15
+# StoreSwitcher Vault 0.6.16
+
+## 0.6.16 sửa prompt SpringBoard không tự điền/submit
+
+Bản này ưu tiên email hiển thị trực tiếp trong hộp thoại Apple ID thay vì
+email của session đang active, rồi dùng cầu nối Keychain theo email đó nếu
+SpringBoard không đọc được access group của App Store. Tweak bắt thêm biến thể
+`SBAlertItemsController activateAlertItem:animated:`, vòng đời
+`SBAlertItem` và đường tạo alert controller của iOS 15–16. Khi UIKit không
+expose target của nút, lần thử tiếp theo không bị đánh dấu thành công giả; với
+`UIAlertController`, tweak thử action native có kiểm tra signature trước khi
+đánh dấu đã submit. 2FA vẫn dừng để người dùng nhập thủ công.
 
 ## 0.6.15 xử lý xác thực phiên cũ khi đăng xuất
 
