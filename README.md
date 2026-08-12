@@ -8,8 +8,12 @@ Add this source after GitHub Pages finishes publishing:
 
 Current packages:
 
-- AI CarBridge 0.2.5 — configurable 3×5 home grid with row/column and label controls, Vietnamese-default interface, push-to-talk language selection, and copyable CarPlay runtime diagnostics; video playback disabled; parked bench testing only.
+- AI Voice Assistant 0.3.0 — Vietnamese-first wake-word assistant with local command parsing, spoken responses, Google Maps/YouTube handoff, and optional VTV1 URL. The former CarPlay bridge is not active in this release.
 - StoreSwitcher Vault 0.6.16 — rootless iOS 15–16.
+
+## AI Voice Assistant 0.3.0
+
+This release focuses on the voice assistant rather than arbitrary CarPlay app injection. Enable the assistant in Settings, grant microphone/speech permission with the test button, then enable the Vietnamese wake phrase **“Này trợ lý”**. The parser handles navigation, search, calls, app/media handoff, and basic playback commands. Place search depends on the target app and network availability; VTV1 requires a user-supplied stream/page URL.
 
 ## StoreSwitcher Vault 0.6.16
 

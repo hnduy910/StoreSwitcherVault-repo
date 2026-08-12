@@ -1,4 +1,19 @@
 Package: com.example.aicarbridge
+Name: AI Voice Assistant
+Version: 0.3.0
+Architecture: iphoneos-arm64
+Description: Vietnamese-first wake-word voice assistant with local command parsing, Google Maps/YouTube handoff, TTS, and optional VTV1 URL.
+Maintainer: AI Voice Assistant Contributors
+Author: AI Voice Assistant Contributors
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), ellekit | mobilesubstrate, preferenceloader
+Conflicts: com.cortex.carplayenable
+Filename: com.example.aicarbridge_0.3.0_iphoneos-arm64.deb
+Size: 39114
+SHA256: 8ad5fc8e46fe56ab7f0a2de4abb9ec22d6bd22ad71c7b15dce5435754f83cea0
+
+Package: com.example.aicarbridge
 Name: AI CarBridge
 Version: 0.2.5
 Architecture: iphoneos-arm64
