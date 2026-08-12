@@ -1,4 +1,12 @@
-# StoreSwitcher Vault 0.6.14
+# StoreSwitcher Vault 0.6.15
+
+## 0.6.15 xử lý xác thực phiên cũ khi đăng xuất
+
+Bản này giữ trạng thái email phiên App Store hiện tại trong coordinator trong
+thời gian ngắn. Nếu StoreServices yêu cầu xác thực tài khoản cũ khi đăng xuất,
+tweak điền đúng mật khẩu của phiên cũ trước; sau đó mới chuyển sang email đích.
+Điều này tránh việc prompt compact hiển thị tài khoản cũ nhưng bị nhận nhầm là
+form đăng nhập tài khoản mới.
 
 ## 0.6.14 điều phối đúng tài khoản qua prompt hệ thống
 
