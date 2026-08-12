@@ -1,4 +1,17 @@
-# StoreSwitcher Vault 0.6.12
+# StoreSwitcher Vault 0.6.13
+
+## 0.6.13 sửa cầu nối mật khẩu và làm mới trang tài khoản
+
+Một số bản iOS hiển thị hộp thoại Apple ID trong SpringBoard nhưng không cho
+tiến trình này đọc trực tiếp Keychain của AppStore. Bản vá này đọc metadata
+profile từ file preferences dùng chung (không chứa mật khẩu), dùng thêm
+`CPDistributedMessagingCenter` được RocketBootstrap bảo vệ để yêu cầu mật khẩu
+tạm thời từ AppStore/appstored, và bắt trực tiếp vòng đời `UIAlertController`.
+Mật khẩu vẫn chỉ nằm trong Keychain và chỉ trả về cho email đã có trong Vault.
+
+Sau khi phiên mới được lưu, trang Account được làm mới nhiều nhịp, gồm các
+controller con và table/collection view, để không giữ lại tên/email của phiên
+cũ trong cache giao diện.
 
 ## 0.6.12 hồi phục hook SpringBoard/daemon
 
