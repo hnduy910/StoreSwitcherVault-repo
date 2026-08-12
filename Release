@@ -1,14 +1,14 @@
 Origin: StoreSwitcher Vault
 Label: StoreSwitcher Vault
 Suite: stable
-Version: 0.6.16
+Version: 0.6.17
 Codename: stable
-Architectures: iphoneos-arm64
+Architectures: iphoneos-arm64 iphoneos-arm64e
 Components: main
-Description: StoreSwitcher Vault rootless jailbreak package feed.
+Description: StoreSwitcher Vault rootless and roothide jailbreak package feed.
 MD5Sum:
-  1123a5e0a3c83aee3c41d2da82fa504c  1240  Packages
-  e693e7507613b792b0039ffc3b858318  474  Packages.gz
+  5725df9fccae7e018666c182b412d581  2723  Packages
+  e8ed4a7c1180c6a870de77abd835ca62  612  Packages.gz
 SHA256:
-  09188d3490e331950cb962605ab1507a1b7971a9a01ab9a3ea4253ea805858c8  1240  Packages
-  78d8bd3af70f63ce28f59c1e86e2b5ff33d81d844470e308e3840036d8eaefb3  474  Packages.gz
+  37ff834131feb5fe4f0e01fef20d913a5a4f5913b0d25433c1f1464ee2667a6d  2723  Packages
+  1d6e3fc05aefd1fd03c8efc675ef6d72e490990ff4b63fa48011380726179865  612  Packages.gz

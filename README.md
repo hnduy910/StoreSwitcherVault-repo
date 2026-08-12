@@ -1,4 +1,19 @@
-# StoreSwitcher Vault 0.6.16
+# StoreSwitcher Vault 0.6.17
+
+## 0.6.17 bổ sung đóng gói roothide
+
+Bản này giữ nguyên binary rootless cho Dopamine và thêm build roothide riêng.
+Rootless dùng gói `iphoneos-arm64` với `THEOS_PACKAGE_SCHEME=rootless`; roothide
+dùng gói `iphoneos-arm64e` với `THEOS_PACKAGE_SCHEME=roothide`. Các đường dẫn
+thuộc bootstrap đều đi qua `SSVPaths.h`: rootless dùng `/var/jb`, còn roothide
+được phân giải bằng `jbroot(...)` nên không phụ thuộc đường dẫn ngẫu nhiên.
+
+Trên Dopamine-roothide có injection cho các tiến trình được cấu hình, tweak có
+thể dùng đầy đủ AppStore/SpringBoard/appstored/installd như filter trong plist.
+Trên roothide Bootstrap thông thường, injection SpringBoard và daemon có thể bị
+tắt theo thiết kế; khi đó phần chuyển session trong AppStore vẫn có thể dùng,
+nhưng quick action SpringBoard, autofill prompt ngoài AppStore và hook
+`appstored`/`installd` không được xem là hỗ trợ đầy đủ.
 
 ## 0.6.16 sửa prompt SpringBoard không tự điền/submit
 
@@ -59,7 +74,7 @@ thiết kế, đồng thời bắt thêm accessor `SBAlertItem.alertController` 
 build iOS không gọi lại `configure:`. Luồng session đã lưu, Keychain và 2FA
 được giữ nguyên.
 
-A clean-room, rootless Theos tweak for Dopamine on iOS 15–16. It lists App Store
+A clean-room, rootless/roothide Theos tweak for Dopamine and roothide on iOS 15–16. It lists App Store
 sessions exposed by StoreServices, switches a still-saved session, and keeps
 user-entered fallback passwords in Keychain. If no saved session matches, it
 opens the App Store sign-in UI, selects the different-Apple-ID row when present,
@@ -243,9 +258,13 @@ iOS 15 or newer.
 ```sh
 export THEOS=/path/to/theos
 make clean package FINALPACKAGE=1 THEOS_PLATFORM_DEB_COMPRESSION_TYPE=xz
+
+# roothide build (use roothide/theos)
+THEOS=/path/to/roothide-theos make clean package THEOS_PACKAGE_SCHEME=roothide FINALPACKAGE=1 THEOS_PLATFORM_DEB_COMPRESSION_TYPE=xz
 ```
 
-The package is `iphoneos-arm64` and uses `THEOS_PACKAGE_SCHEME=rootless`.
+The rootless package is `iphoneos-arm64` and uses `THEOS_PACKAGE_SCHEME=rootless`.
+The roothide package is `iphoneos-arm64e` and uses `THEOS_PACKAGE_SCHEME=roothide`.
 
 ## Source provenance and licensing
 
@@ -273,7 +292,8 @@ No upstream file is shipped unchanged.
 | `SSVProfileStore.h/.m` | new | Stable profile UUIDs and per-profile preferences |
 | `SSVSignInCoordinator.h/.m` | new | Non-secret cross-process target/phase state for sign-in |
 | `SSVManagerController.h/.m` | new | Session list, credential list, switching and fallback fill UI |
-| `Makefile`, `control`, plist | new | Dopamine/rootless Theos packaging |
+| `SSVPaths.h` | new | Resolves rootless `/var/jb` and roothide `jbroot(...)` paths |
+| `Makefile`, `control`, plist | new | Dopamine/rootless and roothide Theos packaging |
 | `LICENSE`, `README.md` | new | License, provenance, build and risk notes |
 
 Concepts retained because they are required for interoperability: resolve
@@ -288,6 +308,11 @@ upstream implementation.
 - Every App Store/StoreServices class and selector used here is private and may
   disappear or change on any iOS update. The tweak checks availability and fails
   closed, but only device testing can prove a specific build.
+- roothide packages require roothide/theos and a roothide-compatible loader.
+  The package architecture is intentionally `iphoneos-arm64e`; do not install
+  it on an ordinary rootless Dopamine environment. A roothide Bootstrap may
+  require enabling AppStore injection manually and does not provide the daemon
+  hooks needed for every feature.
 - Sign-out/deactivation is best-effort. Runtime signature checks prevent calls
   into incompatible no-argument selectors; the fallback only clears the
   active flag and saves the old session so it can be restored later.
