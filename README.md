@@ -8,7 +8,7 @@ Add this source after GitHub Pages finishes publishing:
 
 Current packages:
 
-- AI CarBridge 0.2.3 — Vietnamese-default interface and push-to-talk language selection; external-display test launcher; video playback disabled; parked bench testing only.
+- AI CarBridge 0.2.4 — Vietnamese-default interface, push-to-talk language selection, and copyable CarPlay runtime diagnostics; external-display test launcher; video playback disabled; parked bench testing only.
 - StoreSwitcher Vault 0.6.16 — rootless iOS 15–16.
 
 ## StoreSwitcher Vault 0.6.16
