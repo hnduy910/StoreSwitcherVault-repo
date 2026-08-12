@@ -25,12 +25,12 @@ corresponding tweak directory.
 
 Current packages:
 
-- AI Voice Assistant 0.4.1 — Vietnamese-first hands-free assistant that starts when CarPlay connects and adds an opt-in passenger display mode, local voice commands, confirmations, TTS, and Maps/media handoff. The former CarPlay bridge is not active in this release.
+- AI Voice Assistant 0.4.2 — Vietnamese-first hands-free assistant with settings in both the iPhone Settings app and the vehicle's CarPlay pane, shared Vietnamese/English locale selection, CarPlay auto-start, local voice commands, confirmations, TTS, and Maps/media handoff. The former CarPlay bridge is not active in this release.
 - StoreSwitcher Vault 0.6.16 — rootless iOS 15–16.
 
-## AI Voice Assistant 0.4.1
+## AI Voice Assistant 0.4.2
 
-This release focuses on the voice assistant rather than arbitrary CarPlay app injection. Enable automatic start on CarPlay in Settings, optionally enable **Chế độ màn hình hành khách** when a passenger is present, grant microphone/speech permission with the test button, then use the Vietnamese wake phrase **“Này trợ lý”**. English is selectable. The parser handles navigation, search, phone/message handoff with confirmation, app/media handoff, and basic playback commands. Place search depends on the target app and network availability; VTV1 requires a user-supplied stream/page URL.
+This release focuses on the voice assistant rather than arbitrary CarPlay app injection. Configure it from **Settings → AI Voice Assistant** or **Settings → General → CarPlay → [vehicle] → AI Voice Assistant** on the iPhone; the settings are not rendered as a menu on the car display. Vietnamese (`vi-VN`) is the default for both interface and recognition, and English (`en-US`) is selectable. Enable automatic start on CarPlay, grant microphone/speech permission with the test button, then use **“Này trợ lý”**. The parser handles navigation, search, phone/message handoff with confirmation, app/media handoff, and basic playback commands. Place search depends on the target app and network availability; VTV1 requires a user-supplied stream/page URL.
 
 ## StoreSwitcher Vault 0.6.16
 
