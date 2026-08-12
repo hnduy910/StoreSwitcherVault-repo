@@ -9,7 +9,7 @@ Section: Tweaks
 Priority: optional
 Depends: firmware (>= 15.0), ellekit | mobilesubstrate, preferenceloader
 Conflicts: com.cortex.carplayenable
-Filename: com.example.aicarbridge_0.3.0_iphoneos-arm64.deb
+Filename: AI-Voice-Assistant/com.example.aicarbridge_0.3.0_iphoneos-arm64.deb
 Size: 39114
 SHA256: 8ad5fc8e46fe56ab7f0a2de4abb9ec22d6bd22ad71c7b15dce5435754f83cea0
 
@@ -24,7 +24,7 @@ Section: Tweaks
 Priority: optional
 Depends: firmware (>= 15.0), ellekit | mobilesubstrate, preferenceloader
 Conflicts: com.cortex.carplayenable
-Filename: com.example.aicarbridge_0.2.5_iphoneos-arm64.deb
+Filename: AI-Voice-Assistant/com.example.aicarbridge_0.2.5_iphoneos-arm64.deb
 Size: 58064
 SHA256: d4c02bcf9e40f2edc6ef25cb26e842c03051469331c384e96b0f37d98ee8939d
 
@@ -38,6 +38,6 @@ Author: StoreSwitcher Vault contributors
 Section: Tweaks
 Priority: optional
 Depends: firmware (>= 15.0), ellekit | mobilesubstrate
-Filename: com.example.storeswitchervault_0.6.16_iphoneos-arm64.deb
+Filename: StoreSwitcherVault/com.example.storeswitchervault_0.6.16_iphoneos-arm64.deb
 Size: 88552
 SHA256: 0444594e925847e690ebb3a386488c5d49a4a109722f1e1ff135060bb1caa902

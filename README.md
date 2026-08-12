@@ -6,6 +6,23 @@ Add this source after GitHub Pages finishes publishing:
 
 `https://hnduy910.github.io/repo/`
 
+The feed is organized by tweak:
+
+```text
+repo/
+├── AI-Voice-Assistant/
+│   └── com.example.aicarbridge_*.deb
+├── StoreSwitcherVault/
+│   └── com.example.storeswitchervault_*.deb
+├── Packages
+├── Packages.gz
+└── Release
+```
+
+`Packages`, `Packages.gz`, and `Release` stay at the root because Sileo/Zebra
+read them as the repository index. The `Filename` fields point into the
+corresponding tweak directory.
+
 Current packages:
 
 - AI Voice Assistant 0.3.0 — Vietnamese-first wake-word assistant with local command parsing, spoken responses, Google Maps/YouTube handoff, and optional VTV1 URL. The former CarPlay bridge is not active in this release.
