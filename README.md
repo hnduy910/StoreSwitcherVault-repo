@@ -8,7 +8,7 @@ Add this source after GitHub Pages finishes publishing:
 
 Current packages:
 
-- AI CarBridge 0.2.0 — experimental iOS 15+ rootless foundation; parked bench testing only.
+- AI CarBridge 0.2.1 — stable CarPlay Settings pane; Vietnamese push-to-talk default; parked bench testing only.
 - StoreSwitcher Vault 0.6.16 — rootless iOS 15–16.
 
 ## StoreSwitcher Vault 0.6.16

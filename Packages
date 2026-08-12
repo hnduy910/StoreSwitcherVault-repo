@@ -1,17 +1,17 @@
 Package: com.example.aicarbridge
 Name: AI CarBridge
-Version: 0.2.0
+Version: 0.2.1
 Architecture: iphoneos-arm64
-Description: Experimental rootless CarPlay bridge with CarPlay Settings entry and Vietnamese/English push-to-talk controls.
+Description: Experimental rootless CarPlay bridge with a stable CarPlay Settings pane and Vietnamese/English push-to-talk controls.
 Maintainer: AI CarBridge Contributors
 Author: AI CarBridge Contributors
 Section: Tweaks
 Priority: optional
 Depends: firmware (>= 15.0), ellekit | mobilesubstrate, preferenceloader
 Conflicts: com.cortex.carplayenable
-Filename: com.example.aicarbridge_0.2.0_iphoneos-arm64.deb
-Size: 32834
-SHA256: 8e8d82997d3559f4576331b99b46e4e0b2f8b089cd6ac444d915ca973a736752
+Filename: com.example.aicarbridge_0.2.1_iphoneos-arm64.deb
+Size: 36670
+SHA256: 86ca5539b3ebd44cff633b22c059cf140bbe1b67450eee63bda75d116f060208
 
 Package: com.example.storeswitchervault
 Name: StoreSwitcher Vault
@@ -26,25 +26,3 @@ Depends: firmware (>= 15.0), ellekit | mobilesubstrate
 Filename: com.example.storeswitchervault_0.6.16_iphoneos-arm64.deb
 Size: 88552
 SHA256: 0444594e925847e690ebb3a386488c5d49a4a109722f1e1ff135060bb1caa902
-Origin: StoreSwitcher Vault
-Label: StoreSwitcher Vault
-Suite: stable
-Version: 0.6.16
-Codename: stable
-Architectures: iphoneos-arm64
-Components: main
-Description: StoreSwitcher Vault rootless jailbreak package feed.
-
-Package: com.example.storeswitchervault
-Name: StoreSwitcher Vault
-Version: 0.6.15
-Architecture: iphoneos-arm64
-Description: Manage and switch App Store accounts on rootless iOS 15-16.
-Maintainer: StoreSwitcher Vault contributors
-Author: StoreSwitcher Vault contributors
-Section: Tweaks
-Priority: optional
-Depends: firmware (>= 15.0), ellekit | mobilesubstrate
-Filename: com.example.storeswitchervault_0.6.15_iphoneos-arm64.deb
-Size: 88320
-SHA256: 7838ccdaf4e5d29a18e04e44c27a6d084f4650641c140b7bd7decece6dc83a94
