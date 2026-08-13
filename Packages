@@ -1,5 +1,33 @@
 Package: com.example.carplaysplit
 Name: CarPlay Split
+Description: CarPlay split for Google Maps and YouTube with iPhone-only settings; keeps the vehicle display touchable and supports native RootHide injection.
+Maintainer: CarPlay Split contributors
+Author: CarPlay Split contributors
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), preferenceloader
+Architecture: iphoneos-arm64
+Version: 0.2.3
+Filename: CarPlay-Split/com.example.carplaysplit_0.2.3_iphoneos-arm64.deb
+Size: 40086
+SHA256: c03d051400fd6a2ec1430157426538290d88e7f47b890d3668b9d900e7afdcd7
+
+Package: com.example.carplaysplit
+Name: CarPlay Split
+Description: CarPlay split for Google Maps and YouTube with iPhone-only settings; keeps the vehicle display touchable and supports native RootHide injection.
+Maintainer: CarPlay Split contributors
+Author: CarPlay Split contributors
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), preferenceloader
+Architecture: iphoneos-arm64e
+Version: 0.2.3+roothide
+Filename: CarPlay-Split/com.example.carplaysplit_0.2.3+roothide_iphoneos-arm64e.deb
+Size: 39980
+SHA256: b1c91652d04c806ffa525a437bf509c76d5eeeb3f3151260706e8457e4581694
+
+Package: com.example.carplaysplit
+Name: CarPlay Split
 Description: Experimental CarPlay split host for Google Maps and YouTube with Vietnamese assistant; targets the iOS 16 CarPlay host and native RootHide system injection.
 Maintainer: CarPlay Split contributors
 Author: CarPlay Split contributors
@@ -283,3 +311,4 @@ Depends: firmware (>= 15.0), ellekit | mobilesubstrate
 Filename: StoreSwitcherVault/com.example.storeswitchervault_0.6.16_iphoneos-arm64.deb
 Size: 88552
 SHA256: 0444594e925847e690ebb3a386488c5d49a4a109722f1e1ff135060bb1caa902
+
