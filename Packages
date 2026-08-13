@@ -238,3 +238,5 @@ Section: Tweaks
 Priority: optional
 Depends: firmware (>= 15.0), ellekit | mobilesubstrate
 Filename: StoreSwitcherVault/com.example.storeswitchervault_0.6.16_iphoneos-arm64.deb
+Size: 88552
+SHA256: 0444594e925847e690ebb3a386488c5d49a4a109722f1e1ff135060bb1caa902
