@@ -182,6 +182,21 @@ SHA256: 7ab4208893253a7f7689eb2ec391e4d4d845ac0c1c61c7558ca7ae2e59df0d9e
 
 Package: com.example.aicarbridge
 Name: AI Voice Assistant
+Version: 0.4.3
+Architecture: iphoneos-arm64
+Description: Vietnamese-first hands-free assistant with settings only in the iPhone CarPlay vehicle pane, no car-display settings UI, CarPlay auto-start, local voice commands, confirmations, TTS, and Maps/media handoff.
+Maintainer: AI Voice Assistant Contributors
+Author: AI Voice Assistant Contributors
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), ellekit | mobilesubstrate
+Conflicts: com.cortex.carplayenable
+Filename: AI-Voice-Assistant/com.example.aicarbridge_0.4.3_iphoneos-arm64.deb
+Size: 45852
+SHA256: 12a510a2f51dc47a831a0be2a30733456d8f37136c933e84bee32fe148f5a3f2
+
+Package: com.example.aicarbridge
+Name: AI Voice Assistant
 Version: 0.4.2
 Architecture: iphoneos-arm64
 Description: Vietnamese-first hands-free assistant with CarPlay Settings integration, shared Vietnamese/English locale selection, auto-start, local voice commands, confirmations, TTS, and Maps/media handoff.

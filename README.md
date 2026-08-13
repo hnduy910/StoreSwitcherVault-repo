@@ -44,7 +44,7 @@ corresponding tweak directory.
 Current packages:
 
 - VietAI Assistant 0.3.1 — Vietnamese wake-phrase assistant with dynamic app launch, current weather by GPS/place, short web answers with browser fallback, multi-turn hands-free conversations, media, navigation, flashlight, volume, home and lock actions. The feed includes the `iphoneos-arm64` rootless build and the `iphoneos-arm64e` RootHide build under the same package ID, so no second Sileo source is needed.
-- AI Voice Assistant 0.4.2 — Vietnamese-first hands-free assistant with settings in both the iPhone Settings app and the vehicle's CarPlay pane, shared Vietnamese/English locale selection, CarPlay auto-start, local voice commands, confirmations, TTS, and Maps/media handoff. The former CarPlay bridge is not active in this release.
+- AI Voice Assistant 0.4.3 — Vietnamese-first hands-free assistant with settings only in the iPhone's vehicle-specific CarPlay pane; it removes the old root-level PreferenceLoader menu and never renders settings on the car display. It keeps shared Vietnamese/English locale selection, CarPlay auto-start, local voice commands, confirmations, TTS, and Maps/media handoff.
 - StoreSwitcher Vault 0.6.17 — rootless and RootHide iOS 15–16 (`iphoneos-arm64` and `iphoneos-arm64e`).
 
 ## VietAI Assistant 0.3.1
@@ -67,9 +67,9 @@ Vietnamese spoken answer from current weather data. Ask **“tra cứu …”** 
 answer, VietAI opens the full browser results. Location/weather and web lookups
 require network access; arbitrary shell text is never sent or executed.
 
-## AI Voice Assistant 0.4.2
+## AI Voice Assistant 0.4.3
 
-This release focuses on the voice assistant rather than arbitrary CarPlay app injection. Configure it from **Settings → AI Voice Assistant** or **Settings → General → CarPlay → [vehicle] → AI Voice Assistant** on the iPhone; the settings are not rendered as a menu on the car display. Vietnamese (`vi-VN`) is the default for both interface and recognition, and English (`en-US`) is selectable. Enable automatic start on CarPlay, grant microphone/speech permission with the test button, then use **“Này trợ lý”**. The parser handles navigation, search, phone/message handoff with confirmation, app/media handoff, and basic playback commands. Place search depends on the target app and network availability; VTV1 requires a user-supplied stream/page URL.
+This release focuses on the voice assistant rather than arbitrary CarPlay app injection. Configure it from **Settings → General → CarPlay → [vehicle] → AI Voice Assistant** on the iPhone; the package no longer installs a root-level PreferenceLoader entry, and the settings are never rendered as a menu or window on the car display. Vietnamese (`vi-VN`) is the default for both interface and recognition, and English (`en-US`) is selectable. Enable automatic start on CarPlay, grant microphone/speech permission with the test button, then use **“Này trợ lý”**. The parser handles navigation, search, phone/message handoff with confirmation, app/media handoff, and basic playback commands. Place search depends on the target app and network availability; VTV1 requires a user-supplied stream/page URL. Upgrading from 0.4.2 removes its old PreferenceLoader bundle and entry automatically.
 
 ## StoreSwitcher Vault 0.6.17
 
