@@ -1,5 +1,33 @@
 Package: com.example.carplaysplit
 Name: CarPlay Split
+Description: CarPlay split with draggable panes, live clock/date rail and iPhone-only settings; keeps the vehicle display touchable and supports native RootHide injection.
+Maintainer: CarPlay Split contributors
+Author: CarPlay Split contributors
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), preferenceloader
+Architecture: iphoneos-arm64
+Version: 0.2.4
+Filename: CarPlay-Split/com.example.carplaysplit_0.2.4_iphoneos-arm64.deb
+Size: 46260
+SHA256: 28581c9dc0619b5f0a8e5d884f97b244e8d57798f3cdbe6cb876861160d62bd5
+
+Package: com.example.carplaysplit
+Name: CarPlay Split
+Description: CarPlay split with draggable panes, live clock/date rail and iPhone-only settings; keeps the vehicle display touchable and supports native RootHide injection.
+Maintainer: CarPlay Split contributors
+Author: CarPlay Split contributors
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), preferenceloader
+Architecture: iphoneos-arm64e
+Version: 0.2.4+roothide
+Filename: CarPlay-Split/com.example.carplaysplit_0.2.4+roothide_iphoneos-arm64e.deb
+Size: 46562
+SHA256: ceb4acefc23f8cae85bca8c03038c660f4ee0dd5defb8e6f7da3498be07974e1
+
+Package: com.example.carplaysplit
+Name: CarPlay Split
 Description: CarPlay split for Google Maps and YouTube with iPhone-only settings; keeps the vehicle display touchable and supports native RootHide injection.
 Maintainer: CarPlay Split contributors
 Author: CarPlay Split contributors
