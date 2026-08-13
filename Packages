@@ -98,6 +98,34 @@ SHA256: 0bad30c5d19d03ed9f04708970d963a6572a0a9ee2b907de8c2a5746c91e3414
 
 Package: com.vietai.assistant
 Name: VietAI Assistant
+Version: 0.3.1
+Architecture: iphoneos-arm64
+Description: Vietnamese hands-free assistant with dynamic app launch, location-based current weather, web answers, browser fallback, multi-turn confirmations and allowlisted system actions.
+Maintainer: VietAI
+Author: VietAI
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), ellekit | mobilesubstrate
+Filename: VietAI-Assistant/com.vietai.assistant_0.3.1_iphoneos-arm64.deb
+Size: 57984
+SHA256: 5d8004a698480b5cc0f005d5d3766004f92de1690ec33b1dfc524957b7709a64
+
+Package: com.vietai.assistant
+Name: VietAI Assistant
+Version: 0.3.1
+Architecture: iphoneos-arm64e
+Description: Vietnamese hands-free assistant with dynamic app launch, location-based current weather, web answers, browser fallback, multi-turn confirmations and allowlisted system actions.
+Maintainer: VietAI
+Author: VietAI
+Section: Tweaks
+Priority: optional
+Depends: firmware (>= 15.0), ellekit | mobilesubstrate
+Filename: VietAI-Assistant/com.vietai.assistant_0.3.1_iphoneos-arm64e.deb
+Size: 40292
+SHA256: 76f67be8eb5ce7477770a8d6671e1e41a5ccc7093121cbe937afd09aa7fa5ee3
+
+Package: com.vietai.assistant
+Name: VietAI Assistant
 Version: 0.2.2
 Architecture: iphoneos-arm64
 Description: Vietnamese hands-free assistant with wake phrase, multi-turn confirmations, accent-preserving contact/message/navigation arguments, dynamic app launch, media, flashlight, volume, home and lock actions.

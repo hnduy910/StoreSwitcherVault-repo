@@ -43,11 +43,11 @@ corresponding tweak directory.
 
 Current packages:
 
-- VietAI Assistant 0.2.2 — Vietnamese wake-phrase assistant with multi-turn hands-free conversations, spoken responses, accent-preserving contact/message/navigation arguments, dynamic app launch, media, navigation, flashlight, volume, home and lock actions. The feed includes the `iphoneos-arm64` rootless build and the `iphoneos-arm64e` RootHide build under the same package ID, so no second Sileo source is needed.
+- VietAI Assistant 0.3.1 — Vietnamese wake-phrase assistant with dynamic app launch, current weather by GPS/place, short web answers with browser fallback, multi-turn hands-free conversations, media, navigation, flashlight, volume, home and lock actions. The feed includes the `iphoneos-arm64` rootless build and the `iphoneos-arm64e` RootHide build under the same package ID, so no second Sileo source is needed.
 - AI Voice Assistant 0.4.2 — Vietnamese-first hands-free assistant with settings in both the iPhone Settings app and the vehicle's CarPlay pane, shared Vietnamese/English locale selection, CarPlay auto-start, local voice commands, confirmations, TTS, and Maps/media handoff. The former CarPlay bridge is not active in this release.
 - StoreSwitcher Vault 0.6.17 — rootless and RootHide iOS 15–16 (`iphoneos-arm64` and `iphoneos-arm64e`).
 
-## VietAI Assistant 0.2.2
+## VietAI Assistant 0.3.1
 
 VietAI is the general-purpose companion in this feed. Install the single package
 from this source, open **VietAI**, grant Microphone, Speech Recognition and
@@ -60,6 +60,12 @@ adding another Sileo source. On RootHide, Sileo selects the `iphoneos-arm64e`
 package; on a conventional rootless jailbreak it selects `iphoneos-arm64`.
 If AI Voice Assistant is also installed, enable only one wake-word assistant at
 a time to avoid two microphone sessions.
+
+Ask **“thời tiết hiện tại ở vị trí của tôi”** to grant location access and get a
+Vietnamese spoken answer from current weather data. Ask **“tra cứu …”** or
+**“tìm trên web …”** for a short public answer; if the provider has no concise
+answer, VietAI opens the full browser results. Location/weather and web lookups
+require network access; arbitrary shell text is never sent or executed.
 
 ## AI Voice Assistant 0.4.2
 
